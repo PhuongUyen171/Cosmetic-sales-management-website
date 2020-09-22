@@ -1,0 +1,10 @@
+﻿@*@model NguyenThiPhuongUyen_2001170230_doAn.Models.THUONG_HIEU*@
+<div class="nav nar-tab">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("SanPhamTheoThuongHieu", "SanPham", new { id = item.MaTH })" class="nav-item">
+        <img src="@Url.Content("~/Content/HinhAnh/ThuongHieu/"+item.Images)" height="100px" width="100px" />
+            </a>
+    }
+</div>
+

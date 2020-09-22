@@ -1,0 +1,52 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.TIN
+
+@{
+    ViewBag.Title = "XoaTinTuc";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+@helper Truncate(string input,int length){
+    if(input.Length<length){
+        @input
+    }
+    else{
+        
+        @input.Substring(0,length)<text>...</text>
+    }
+}
+
+
+
+<h2>XÁC NHẬN TIN TỨC CẦN XÓA</h2>
+<h4>Bạn quyết định xóa tin này?</h4>
+<div>
+    <hr />
+    <table border="0" align="center" style="text-align:left">
+        <tr>
+            <td style="text-align:right;font-weight:bold">Tiêu đề tin:</td>
+            <td style="text-align:left">@Html.DisplayFor(m=>m.TieuDe)</td>
+        </tr>
+        <tr>
+            <td style="text-align:right;font-weight:bold">Ngày cập nhật:</td>
+            <td style="text-align:left">@string.Format("{0:dd/MM/yyyy}",Model.Ngay)</td>
+        </tr>
+        <tr>
+            <td style="text-align:right;font-weight:bold">Nội dung:</td>
+            <td style="width:600px;text-align:justify">@Truncate(Model.TomTat,200)</td>
+        </tr>
+        <tr>
+            <td style="text-align:right;font-weight:bold">Hình ảnh:</td>
+            <td style="text-align:left"><img src="@Url.Content("~/Content/HinhAnh/Tin/"+Model.Hinh)" width="120px" /></td>
+        </tr>
+        
+    </table>
+</div>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-secondary" />
+            @Html.ActionLink("TRỞ VỀ","TinTuc")
+        </div>
+    }
+</div>

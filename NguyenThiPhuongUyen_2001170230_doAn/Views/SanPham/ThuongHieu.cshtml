@@ -1,0 +1,10 @@
+﻿
+<h1 style="text-align:center; font-size:18px">THƯƠNG HIỆU</h1>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("SanPhamTheoThuongHieu", "SanPham", new { id = item.MaTH })" style="color:brown;text-decoration:none;background-color:lightyellow" class="list-group-item">
+            @item.TenTH
+        </a>
+    }
+</div>

@@ -1,0 +1,43 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.THUONG_HIEU
+
+@{
+    ViewBag.Title = "Sửa thương hiệu";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>SỬA THƯƠNG HIỆU</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table border="0" align="center">
+        @Html.ValidationSummary(true)
+        @*@Html.HiddenFor(m=>m.MaTH)*@
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã thương hiệu:</td>
+            <td style="text-align:left">
+                <div style="font:18px;padding:5px 0 0 5px">@Model.MaTH</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Tên thương hiệu:</td>
+            <td style="text-align:left">
+                @* @Html.EditorFor(m=>m.TenTH)
+                    @Html.ValidationMessageFor(m=>m.TenTH)*@
+                @Html.TextBoxFor(m => m.TenTH)@ViewData["Loi"]
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Hình ảnh:</td>
+            <td style="text-align:left">
+                <input type="file" name="file" />
+                <br />
+                <img src="@Url.Content("~/Content/HinhAnh/ThuongHieu/"+Model.Images)" width="120px" />(Ảnh hiện tại)
+                @ViewBag.Thongbao
+            </td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" value="LƯU" class="btn btn-danger" /></td></tr>
+    </table>
+}
+<div>@Html.ActionLink("TRỞ VỀ QUẢN LÝ THƯƠNG HIỆU", "ThuongHieu")</div>
+

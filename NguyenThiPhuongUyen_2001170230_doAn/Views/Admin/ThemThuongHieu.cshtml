@@ -1,0 +1,40 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.THUONG_HIEU
+
+@{
+    ViewBag.Title = "ThemThuongHieu";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>THÊM THƯƠNG HIỆU</h2>
+@using (Html.BeginForm("ThemThuongHieu", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+<table align="center" style="text-align:left">
+    <tr>
+        <td style="text-align:left">Mã thương hiệu:</td>
+        <td>@Html.TextBox("MaTH")</td>
+    </tr>
+    <tr>
+        <td style="text-align:left">Tên thương hiệu:</td>
+        <td>@Html.TextBox("TenTH")</td>
+    </tr>
+    <tr>
+        <td style="text-align:left">Ảnh bìa:</td>
+        <td><input type="file" name="fileUpload" id="fileUpload"/></td>
+        @*@Html.LabelFor(Model=>Model.Images,htmlAttributes: new { @class="control-label col-md-2"})*@
+    </tr>
+
+
+    <tr>
+        <td colspan="2">
+            <font style="color:red" id="thongBao">
+                @ViewData["Loi"]<br />
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button class="btn btn-danger" type="submit">THÊM MỚI</button></td>
+    </tr>
+</table>
+}
+@Html.ActionLink("VỀ TRANG QUẢN LÝ THƯƠNG HIỆU", "ThuongHieu")

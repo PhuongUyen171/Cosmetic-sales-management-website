@@ -1,0 +1,81 @@
+﻿@using NguyenThiPhuongUyen_2001170230_doAn.Models;
+@model List<GioHang>
+
+@{
+    ViewBag.Title = "Đơn đặt hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ĐƠN ĐẶT HÀNG</h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td>MÃ SẢN PHẨM</td>
+        <td>TÊN SẢN PHẨM</td>
+        <td>ẢNH BÌA</td>
+        <td>SỐ LƯỢNG</td>
+        <td>ĐƠN GIÁ</td>
+        <td>THÀNH TIỀN</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.ma</td>
+        <td>@item.ten</td>
+        <td><img src="~/Content/HinhAnh/SanPham/@item.anh" height="100px" width="100px"/></td>
+        @using (Html.BeginForm("CapNhatGioHang","GioHang",new{@id= item.ma}))
+        {
+            <td>@item.sl</td>
+            <td>@String.Format("{0:0,0}",item.donGia) VNĐ</td>
+            <td>@String.Format("{0:0,0}",item.thanhTien) VNĐ</td>
+        }
+    </tr>
+    }
+    <tr style="text-align:right; font-weight:bold; color:red">
+        <td colspan="3">Số lượng sản phẩm: @ViewBag.Tongsolg</td>
+        <td colspan="3">Tính tiền: @String.Format("{0:0,0}",ViewBag.TongTien) VNĐ</td>
+    </tr>
+    <tr style="text-align:right; font-weight:bold; color:blue">
+        <td colspan="6">
+            @Html.ActionLink("TRỞ VỀ GIỎ HÀNG","GioHang","GioHang")
+        </td>
+        
+    </tr>
+</table>
+
+
+<h2 style="text-align:center">THÔNG TIN ĐẶT HÀNG</h2>
+@{
+    NguyenThiPhuongUyen_2001170230_doAn.Models.KHACH_HANG kh = (NguyenThiPhuongUyen_2001170230_doAn.Models.KHACH_HANG)Session["TaiKhoan"];
+}
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td>Họ tên khách hàng:</td>
+            <td style="font-weight:bold">@kh.TenKH</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Địa chỉ:</td>
+            <td style="font-weight:bold">@kh.DiaChi</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Điện thoại:</td>
+            <td style="font-weight:bold">@kh.SDT</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày đặt:</td>
+            <td style="font-weight:bold">@String.Format("{0:dd/MM/yyyy}", DateTime.Now.ToShortDateString())</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày giao hàng:</td>
+            <td style="font-weight:bold">@String.Format("{0:dd/MM/yyyy}",DateTime.Now.AddDays(2).ToShortDateString())</td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <input type="submit" value="ĐỒNG Ý ĐẶT HÀNG" class="btn btn-secondary" />
+            </td>
+        </tr>
+    }
+</table>

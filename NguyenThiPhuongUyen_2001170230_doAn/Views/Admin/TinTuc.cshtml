@@ -1,0 +1,53 @@
+﻿@using NguyenThiPhuongUyen_2001170230_doAn.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<NguyenThiPhuongUyen_2001170230_doAn.Models.TIN>
+
+
+@{
+    ViewBag.Title = "Tin tức";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+@helper Truncate(string input,int length){
+    if(input.Length<length){
+        @input
+    }
+    else{
+        
+        @input.Substring(0,length)<text>...</text>
+    }
+}
+
+
+
+
+<h2>QUẢN LÝ TIN TỨC</h2>
+<p>@Html.ActionLink("THÊM MỚI","ThemTinTuc")</p>
+<table class="table" border="1" align="center">
+    <tr>
+        <th style="width:120px">Tiêu đề: </th>
+        <th style="width:100px">Mã tin: </th>
+        <th style="width:100px">Hình ảnh: </th>
+        <th style="width:100px">Ngày cập nhật: </th>
+        <th style="width:100px">Tóm tắt: </th>
+        <th style="width:200px"></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => item.TieuDe)</td>
+            <td>@Html.DisplayFor(m => item.MaTin)</td>
+            <td><img src="@Url.Content("~/Content/HinhAnh/Tin/"+item.Hinh)" width="100px" /></td>
+            <td>@Html.DisplayFor(m => item.Ngay)</td>
+            <td>@Truncate(item.TomTat, 200)</td>
+            <td>
+                <button class="btn btn-danger">@Html.ActionLink("Sửa", "SuaTinTuc", new { id = item.MaTin })</button>
+                <button class="btn btn-secondary">@Html.ActionLink("Chi tiết", "ChiTietTinTuc", new { id = item.MaTin })</button>
+                <button class="btn btn-warning">@Html.ActionLink("Xóa", "XoaTinTuc", new { id = item.MaTin })</button>
+            </td>
+</tr>
+    }
+</table>
+Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+    <div class="menuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("TinTuc", new {page=page }))
+    </div>

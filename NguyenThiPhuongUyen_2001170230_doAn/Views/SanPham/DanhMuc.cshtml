@@ -1,0 +1,9 @@
+﻿<h1 style="text-align:center; font-size:18px">DANH MỤC</h1>
+<div class="list-group" style="background-color:lightgray">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("SanPhamTheoDM", "SanPham", new { id = item.MaLoaiSP })" style="color:brown;text-decoration:none;background-color:lightyellow" class="list-group-item">
+            @item.TenLoaiSP
+        </a>
+    }
+</div>

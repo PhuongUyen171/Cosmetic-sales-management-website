@@ -1,0 +1,71 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.SAN_PHAM
+
+@{
+    ViewBag.Title = "Sửa sản phầm";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>ĐIỀU CHỈNH THÔNG TIN SẢN PHẨM</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table border="0" align="center">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m=>m.MaSP)
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã sản phẩm:</td>
+            <td style="text-align:left">
+                <div style="font:18px;padding:5px 0 0 5px">@Model.MaSP</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Tên sản phẩm:</td>
+            <td style="text-align:left">
+                @Html.EditorFor(m=>m.TenSP)
+                @Html.ValidationMessageFor(m=>m.TenSP)
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Giá bán:</td>
+            <td style="text-align:left">
+                @Html.EditorFor(m=>m.GiaBan)
+                @Html.ValidationMessageFor(m=>m.GiaBan)
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mô tả:</td>
+            <td style="text-align:left">
+                <textarea name="Mota" style="width:200px">@Model.MoTa</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Ảnh bìa:</td>
+            <td style="text-align:left">Chọn ảnh mới
+                <input type="file" name="fileUpload" />
+                <br />
+                <img src="@Url.Content("~/Content/HinhAnh/SanPham/"+Model.HinhAnh)" width="120px" />(Ảnh hiện tại)
+                @ViewBag.Thongbao
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Tên thương hiệu:</td>
+            <td style="text-align:left">
+                @Html.DropDownList("Mathuonghieu")
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Tên thể loại:</td>
+            <td style="text-align:left">
+                @Html.DropDownList("Matheloai")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="LƯU" class="btn btn-warning" /></td>
+        </tr>
+        
+    </table>
+}
+@Html.ActionLink("VỀ TRANG QUẢN LÝ SẢN PHẨM","SanPham")
+

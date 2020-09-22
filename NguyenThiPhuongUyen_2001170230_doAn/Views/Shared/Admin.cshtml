@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/css.css" />
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
+</head>
+<body>
+    <div class="bg-info" style="text-align:center; height:100px;font-size:40px;color:red;padding-top:10px">
+        ADMIN
+    </div>
+    <div class="bg-dark" style="height:80px">
+        
+    </div>
+    <div class="container-fluid" style="text-align:center">
+        <div class="row" style="min-height:400px">
+            <div class="col-lg-2 bg-warning">
+                <div class="list-group">
+                    <div class="list-group-item">@Html.ActionLink("TRANG CHỦ","Index","Home")</div>
+                    <div class="list-group-item">@Html.ActionLink("QUẢN LÝ DANH MỤC","DanhMuc","Admin")</div>
+                    <div class="list-group-item">@Html.ActionLink("QUẢN LÝ THƯƠNG HIỆU","ThuongHieu","Admin")</div>
+                    <div class="list-group-item">@Html.ActionLink("QUẢN LÝ SẢN PHẨM","SanPham","Admin")</div>
+                    <div class="list-group-item">@Html.ActionLink("QUẢN LÝ TIN TỨC","TinTuc","Admin")</div>
+                    <div class="list-group-item">@Html.ActionLink("ĐĂNG XUẤT","DangNhap","Admin")</div>
+
+                </div>
+            </div>
+            <div class="col-lg-10 bg-light" style="text-align:center">
+                @RenderBody()
+
+                @Scripts.Render("~/bundles/jquery")
+                @RenderSection("scripts", required: false)
+            </div>
+            <div class="col-lg-2 bg-warning">
+                ĐÂY CŨNG LÀ QUẢNG CÁO LUÔN
+            </div>
+        </div>
+    </div>
+    <div class="bg-dark" style="height:100px;padding-left:100px;color:white">
+        <p>Đây là footer page Admin<br />Hotline: 0961122501<br />Address: 72/34 Dương Đức Hiền</p>
+    </div>
+</body>
+</html>
+
+

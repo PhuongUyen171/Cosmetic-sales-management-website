@@ -1,0 +1,20 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.THE_LOAI_SAN_PHAM
+
+@{
+    ViewBag.Title = "Chi tiết danh mục";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<fieldset>
+    <h2>THÔNG TIN CHI TIẾT DANH MỤC</h2><hr />
+    <div class="display-label" style="padding-left:400px;text-align:left">Mã danh mục:  @Model.MaLoaiSP</div>
+    <div class="dispaly-label" style="padding-left:400px;text-align:left">Tên danh mục: @Model.TenLoaiSP</div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.ActionLink("Xóa", "XoaDanhMuc", new { id = Model.MaLoaiSP })|
+        @Html.ActionLink("Sửa", "SuaDanhMuc", new { id = Model.MaLoaiSP })|
+        @Html.ActionLink("TRỞ VỀ QUẢN LÝ DANH MỤC", "DanhMuc")
+    </p>
+}

@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Trang chủ admin";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>TRANG CHỦ ADMIN</h2>
+
+@{
+    var ad = Session["TKAdmin"] as NguyenThiPhuongUyen_2001170230_doAn.Models.DANG_NHAP;
+}
+<p>Chào mừng bạn @ad.MaNV đến với trang chủ.<br />Chúc bạn một ngày tốt lành.</p>

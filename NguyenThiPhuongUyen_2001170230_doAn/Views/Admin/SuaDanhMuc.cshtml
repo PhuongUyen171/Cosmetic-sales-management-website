@@ -1,0 +1,35 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.THE_LOAI_SAN_PHAM
+
+@{
+    ViewBag.Title = "Sửa danh mục";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<h2>SỬA THỂ LOẠI</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table border="0" align="center">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(m=>m.MaLoaiSP)
+        <tr>
+            <td style="font-weight:bold;text-align:left">Mã thể loại: </td>
+            <td style="text-align:left">
+                <div style="font:18px;padding:5px 0 0 5px">@Model.MaLoaiSP</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold;text-align:left">Tên thể loại:</td>
+            <td style="text-align:left">
+                @*@Html.EditorFor(m=>m.TenLoaiSP)
+                @Html.ValidationMessageFor(m=>m.TenLoaiSP)*@
+                @Html.TextBoxFor(m=>m.TenLoaiSP)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="LƯU" class="btn btn-danger" /></td>
+        </tr>
+        <tr><font color="red" id="thongBao">@ViewData["Loi"]</font></tr>
+</table>
+}
+<div>@Html.ActionLink("TRỞ VỀ QUẢN LÝ DANH MỤC","DanhMuc")</div>

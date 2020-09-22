@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h4 style="color:red; text-align:center" id="thongBao2"> @ViewBag.Thongbao</h4>
+<table align ="center" style="text-align:left">
+    <h2 style="text-align:center">ĐĂNG NHẬP TÀI KHOẢN</h2>
+    @using ( Html.BeginForm())
+    {
+            @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td>Tên đăng nhập:</td>
+            <td>
+                <input type="text" name="usr" placeholder="Nhập tài khoản ..." style="background-color:lightyellow;border:1px solid black" />
+                
+            </td>
+        </tr>
+       
+        <tr style="height:40px">
+            <td>Mật khẩu:</td>
+            <td>
+                <input type="password" name="pass" placeholder="Mật khẩu ..." style="background-color:lightyellow;border:1px solid black" />
+                
+                
+            </td>
+        </tr>
+       
+        <tr style="height:40px">
+            <td></td>
+            <td>
+               <input type="submit" value="Đăng nhập" class="btn btn-danger"/>
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td><p>Chưa có tài khoản??</p></td>
+            <td>
+                <button type="submit" value="Đăng ký"><div>@Html.ActionLink("Đăng Kí","DangKy")</div></button>
+               
+            </td>
+        </tr>
+        <tr>
+           <td colspan="2">
+               <font color="red" id="thongBao">
+                   @ViewData["Loi1"]
+                   @ViewData["Loi2"]
+                   </font>
+</td>
+       </tr>
+    }
+</table>

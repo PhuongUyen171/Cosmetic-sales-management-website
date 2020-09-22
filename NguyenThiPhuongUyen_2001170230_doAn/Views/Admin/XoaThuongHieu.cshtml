@@ -1,0 +1,23 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.THUONG_HIEU
+
+@{
+    ViewBag.Title = "Xóa thương hiệu";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>XÓA THƯƠNG HIỆU</h2>
+<hr />
+<fieldset>
+    @*<font color="red">@ViewData["Loi1"]</font>*@
+    <legend><font color="green">Chắc chắn xóa chưa</font></legend>
+    <div class="display-label">Loại danh mục: @Model.MaTH</div>
+    <div class="display-label">Tên danh mục: @Model.TenTH</div>
+    <div class="display-label">Hình ảnh: <img src="@Url.Content("~/Content/HinhAnh/ThuongHieu/"+Model.Images)"></div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Xóa" />
+        @Html.ActionLink("TRỞ VỀ QUẢN LÝ THƯƠNG HIỆU", "ThuongHieu")
+    </p>
+}

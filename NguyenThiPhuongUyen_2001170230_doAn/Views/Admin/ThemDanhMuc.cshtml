@@ -1,0 +1,26 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.THE_LOAI_SAN_PHAM
+
+@{
+    ViewBag.Title = "Thêm danh mục";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>THÊM DANH MỤC</h2><hr />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <p>
+            Tên danh mục:
+            @Html.TextBox("TenLoaiSP")
+        </p>
+        <p>
+            <input type="submit" value="TẠO MỚI" class="btn btn-danger" />
+        </p>
+        <p>
+
+            <font color="red" id="thongBao">@ViewData["Loi"]</font>
+        </p>
+    </fieldset>
+}
+@Html.ActionLink("TRỞ VỀ QUẢN LÝ DANH MỤC","DanhMuc")

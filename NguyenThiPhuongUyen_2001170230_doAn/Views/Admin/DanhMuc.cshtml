@@ -1,0 +1,35 @@
+﻿@using NguyenThiPhuongUyen_2001170230_doAn.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<NguyenThiPhuongUyen_2001170230_doAn.Models.THE_LOAI_SAN_PHAM>
+
+@{
+    ViewBag.Title = "Danh mục";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+<h2>QUẢN LÝ DANH MỤC</h2>
+<p>@Html.ActionLink("THÊM MỚI","ThemDanhMuc")</p>
+<table class="table" border="1" align="center">
+    <tr>
+        <th style="width:120px">Tên danh mục </th>
+        <th style="width:100px">Mã danh mục </th>
+        <th style="width:200px"></th>
+    </tr>
+    @foreach(var item in Model){
+    <tr>
+        <td>@Html.DisplayFor(m=>item.TenLoaiSP)</td>
+        <td>@Html.DisplayFor(m=>item.MaLoaiSP)</td>
+        
+        <td>
+            <button class="btn btn-danger">@Html.ActionLink("Sửa", "SuaDanhMuc", new { id = item.MaLoaiSP })</button>
+            @*<button class="btn btn-secondary">@Html.ActionLink("Chi tiết", "ChiTietDanhMuc", new { id = item.MaloaiSP })</button>*@
+            <button class="btn btn-warning">@Html.ActionLink("Xóa", "XoaDanhMuc", new { id = item.MaLoaiSP })</button>
+        </td>
+    </tr>
+    }
+</table>
+Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+    <div class="menuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("DanhMuc", new {page=page }))
+    </div>

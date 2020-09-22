@@ -1,0 +1,23 @@
+﻿@model List<NguyenThiPhuongUyen_2001170230_doAn.Models.TIN>
+
+@helper Truncate(string input,int length){
+    if(input.Length<length){
+        @input
+    }
+    else{
+        
+        @input.Substring(0,length)<text>...</text>
+    }
+}
+<div class="row" align="center">
+    @foreach(var item in Model){
+        <div class="hinh col-lg-4">
+            <img src="~/Content/HinhAnh/Tin/@item.Hinh" height="400px" width="800px"/>
+            <p>@Truncate(item.TieuDe,60)</p>
+            <button class="nut" style="width:140px;top:-20px">
+                <a href="@Url.Action("ChiTiet", "TinTuc", new { id =item.MaTin })" class="ten">ĐỌC THÊM</a>
+            </button>
+        </div>
+    }
+</div>
+

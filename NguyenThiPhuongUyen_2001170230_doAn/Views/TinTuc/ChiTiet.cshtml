@@ -1,0 +1,22 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.TIN
+
+@{
+    ViewBag.Title = "Chi tiết tin tức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="font-size:20px">@Model.TieuDe</h2>
+<p>@Model.Ngay</p>
+<img src="~/Content/HinhAnh/Tin/@Model.Hinh" class="col-lg-12" align="center" />
+<p>@Model.TomTat</p>
+<div class="row">
+    <img src="~/Content/HinhAnh/Tin/TIN7.jpg" class="col-lg-6" />
+    <img src="~/Content/HinhAnh/Tin/TIN6.jpg" class="col-lg-6" />
+</div>
+<p>@Model.TomTat</p>
+<p>@Model.TomTat</p>
+<br />
+<div class="bg-danger" style="width:100%;padding-top:10px;padding-left:5px;color:white;height:50px;font-weight:bold">
+    BÀI VIẾT LIÊN QUAN
+</div><br />
+@Html.Action("TinTucPartial","TinTuc")

@@ -1,0 +1,30 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.THUONG_HIEU
+
+@{
+    ViewBag.Title = "Chi tiết thương hiệu";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT THƯƠNG HIỆU</h2>
+<table class="table" style="text-align:left">
+    <tr>
+        <td style="font-weight:bold">Mã thương hiệu: </td>
+        <td style="text-align:left">@Model.MaTH</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Tên thương hiệu: </td>
+        <td style="text-align:left">@Model.TenTH</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold">Hình ảnh:</td>
+        <td style="text-align:left"><img src="@Url.Content("~/Content/HinhAnh/ThuongHieu/"+Model.Images)"></td>
+    </tr>
+</table>
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.ActionLink("Xóa", "XoaThuongHieu", new { id = Model.MaTH })|
+        @Html.ActionLink("Sửa", "SuaThuongHieu", new { id = Model.MaTH })|
+        @Html.ActionLink("TRỞ VỀ QUẢN LÝ THƯƠNG HIỆU", "ThuongHieu")
+    </p>
+}

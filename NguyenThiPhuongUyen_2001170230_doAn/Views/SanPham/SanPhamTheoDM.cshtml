@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Sản phẩm theo danh mục";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@helper Truncate(string input,int length){
+    if(input.Length<length){
+        @input
+    }
+    else{
+        
+        @input.Substring(0,length)<text>...</text>
+    }
+}
+<h2>SẢN PHẨM THEO DANH MỤC</h2>
+
+<div class="row">
+    @foreach(var item in Model){
+    <div class="col-md-4 hieuUng">
+        <img class="hinhdf" src="~/Content/HinhAnh/SanPham/@item.HinhAnh" height="300px" width="250px" />
+            <h2><a href="@Url.Action("ThemGioHang", "GioHang", new { @ma=@item.MaSP,@ur=Request.Url.ToString() })" style="color:white;text-decoration:none" id="btnMua">MUA NGAY</a></h2>
+        <br />
+        <a href="@Url.Action("ChiTiet", "SanPham", new { id =@item.MaSP })" class="ten">@Truncate(item.TenSP, 30)</a>      <br />
+        <a href="@Url.Action("ThemGioHang", "GioHang", new { @ma=@item.MaSP,@ur=Request.Url.ToString() })"  id="btnMua">MUA</a>   
+        <h1>@string.Format("{0:0,0}",item.GiaBan) VNĐ</h1>
+    </div>
+    }
+</div>

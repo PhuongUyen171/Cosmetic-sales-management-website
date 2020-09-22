@@ -1,0 +1,20 @@
+Nguyễn Thị Phương Uyên - 2001170230
+Nguyễn Xuân Nhật - 2001170121
+Đào Công Tuấn -
+Lê Tấn Sỹ -
+Nguyễn Thành Nghiệp - 
+Ghi chú: 
+- Test AutomatedUITest bằng Visual Studio 2012
+- Test NUnitTestDoAn bằng Visua Studio 2019
+
+
+//----------------------------------------------
+1. Chức năng đăng nhập admin : Nhật
+2. Chức năng tìm kiếm trên menu : Nghiệp
+3. Chức năng tìm kiếm trên trang sản phẩm : Nghiệp
+4. Chức năng phân loại sản phẩm theo danh mục : Nhật
+5. Chức năng phân loại sản phẩm theo thương hiệu : Nhật
+6. Chức năng đăng nhập khách hàng : Uyên
+7. Chức năng đăng ký khách hàng : Uyên
+8. Chức năng thêm, xóa, cập nhật giỏ hàng : Uyên
+9. Chức năng thêm, sửa, xóa, chi tiết danh mục : Uyên

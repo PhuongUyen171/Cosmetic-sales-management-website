@@ -1,0 +1,445 @@
+﻿@charset "utf-8";
+/* CSS Document */
+@import url("bootstrap.min.css");
+@import url("bootstrap.min.js");
+.header{
+	background:url('../HinhAnh/bannerNgang.jpg');
+    background:url('bannerNgang.jpg') no-repeat fixed center; 
+    background-repeat:no-repeat;
+	height:400px;
+	width:100%;
+}
+.hinh {
+    width:200px;
+    height:300px;
+    float:left;
+    margin-top:10px;
+    margin-bottom:30px;
+}
+.hinh img{
+    width:250px;
+    height:200px;
+}
+.hinh:hover img {
+    opacity:0.5;
+}
+.nut {
+    color:white;
+    background-color:black;
+    text-align:justify;
+}
+    .nut:hover {
+        color:black;
+        background-color:white;
+        border:1px solid black;
+    }
+
+.menuTrang li {
+    display:inline;
+    border:1px solid black;
+    margin-right:5px;
+    width:20px;
+    text-align:center;
+}
+
+
+nav ul li a {
+    text-decoration:none;
+}
+h1{
+	color:red;
+	font-size:16px;
+	text-transform:uppercase;
+}
+.menu{
+	height:50px;
+	width:100%;
+}
+.menu li{
+	width:100px;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+}
+.menu a{
+	text-decoration:none;
+	color:white;
+    font-size:18px;
+    font-weight:bold;
+}
+.content{
+	min-height:600px;
+}
+.footer1{
+	background-color:black;
+	height:150px;
+	width:100%;
+	margin:0 auto;
+	clear:both;
+	color:white;
+	
+}
+.footer1 ul{
+	list-style:none;
+}
+.footer1 ul a{
+	text-decoration:none;
+	color:grey;
+}
+.footer2{
+	height:100px;
+	width:100%;
+	background-color:#333;
+	color:#CCC;
+	margin:0 auto;
+	clear:both;
+}
+.footer2 ul{
+	list-style:none;
+}
+.banner{
+	width:100%;
+	height:420px;
+	background-color:lightpink;
+	position:relative;
+}
+.mySlide {
+	display: none;
+}
+.text {
+	color: #f2f2f2;
+	font-size: 15px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.daytieude {
+    border-top:4px solid blue;
+    height:40px;
+    width:100%;
+    background-color:green;
+}
+.tieude {
+    height: 40px;
+    background-color: blue;
+    color: red;
+}
+.dot {
+	cursor:pointer;
+	height: 13px;
+	width: 13px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+	background-color: #717171;
+}
+
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 3s;
+	animation-name: fade;
+	animation-duration: 3s;
+}
+
+@-webkit-keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+
+@keyframes fade {
+	from {opacity: .4} 
+	to {opacity: 1}
+}
+.ten{
+    color:dimgray;
+    text-transform:uppercase;
+    font-size:18px;
+    text-decoration:none;
+}
+
+
+
+
+
+
+/*Hiệu ứng mua hàng*/
+.hieuUng {
+    margin:auto;
+    overflow:hidden;
+    position:relative;
+    transition:0.6s;
+    text-align:center;
+}
+.hieuUng img {
+    background-color:transparent;
+}
+.hieuUng h2 {
+    width:250px;
+    position:absolute;
+    bottom:-60px;
+    height:48px;
+    text-align:center;
+    font-size:30px;
+    padding-top:2px;
+    background-color:lightgray;
+}
+.hieuUng:hover h2 {
+    bottom:100px;
+    transition:0.6s;
+}
+
+
+
+
+
+
+/*//Điện thoại rung lắc*/
+.hotline-phone-ring-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999999;
+}
+.hotline-phone-ring {
+  position: relative;
+  visibility: visible;
+  background-color: transparent;
+  width: 110px;
+  height: 110px;
+  cursor: pointer;
+  z-index: 11;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transition: visibility .5s;
+  left: 0;
+  bottom: 0;
+  display: block;
+}
+.hotline-phone-ring-circle {
+	width: 85px;
+  height: 85px;
+  top: 10px;
+  left: 10px;
+  position: absolute;
+  background-color: transparent;
+  border-radius: 100%;
+  border: 2px solid #e60808;
+  -webkit-animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
+  animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
+  transition: all .5s;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  opacity: 0.5;
+}
+.hotline-phone-ring-circle-fill {
+	width: 55px;
+  height: 55px;
+  top: 25px;
+  left: 25px;
+  position: absolute;
+  background-color: lightpink;
+  border-radius: 100%;
+  border: 2px solid transparent;
+  -webkit-animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
+  animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
+  transition: all .5s;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+.hotline-phone-ring-img-circle {
+	background-color: red;
+	width: 33px;
+  height: 33px;
+  top: 37px;
+  left: 37px;
+  position: absolute;
+  background-size: 20px;
+  border-radius: 100%;
+  border: 2px solid transparent;
+  -webkit-animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
+  animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hotline-phone-ring-img-circle .pps-btn-img {
+	display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -flex;
+}
+.hotline-phone-ring-img-circle .pps-btn-img img {
+	width: 20px;
+	height: 20px;
+}
+.hotline-bar {
+  position: absolute;
+  background: rgba(230, 8, 8, 0.75);
+  height: 40px;
+  width: 160px;
+  line-height: 40px;
+  border-radius: 3px;
+  padding: 0 10px;
+  background-size: 100%;
+  cursor: pointer;
+  transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  z-index: 9;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 50px !important;
+  /* width: 175px !important; */
+  left: 33px;
+  bottom: 37px;
+}
+.hotline-bar > a {
+  color: lightblue;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  text-indent: 50px;
+  display: block;
+  letter-spacing: 1px;
+  line-height: 40px;
+  font-family: Arial;
+}
+.hotline-bar > a:hover,
+.hotline-bar > a:active {
+  color: #fff;
+}
+@-webkit-keyframes phonering-alo-circle-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(0.5) skew(1deg);
+    -webkit-opacity: 0.1;
+  }
+  30% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    -webkit-opacity: 0.5;
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    -webkit-opacity: 0.1;
+  }
+}
+@-webkit-keyframes phonering-alo-circle-fill-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    opacity: 0.6;
+  }
+  50% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+    opacity: 0.6;
+  }
+}
+@-webkit-keyframes phonering-alo-circle-img-anim {
+  0% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+  }
+  10% {
+    -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+  }
+  20% {
+    -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+  }
+  30% {
+    -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+  }
+  40% {
+    -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+  }
+  50% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+  }
+  100% {
+    -webkit-transform: rotate(0) scale(1) skew(1deg);
+  }
+}
+@media (max-width: 768px) {
+  .hotline-bar {
+    display: none;
+  }
+}
+
+/*Hiệu ứng zoom ảnh*/
+
+/* This is the moving lens square underneath the mouse pointer. */
+.cloud-zoom-lens {
+	border: 4px solid #888;
+	margin:-4px;	/* Set this to minus the border thickness. */
+	background-color:#fff;	
+	cursor:move;		
+}
+
+/* This is for the title text. */
+.cloud-zoom-title {
+	font-family:Arial, Helvetica, sans-serif;
+	position:absolute !important;
+	background-color:#000;
+	color:#fff;
+	padding:3px;
+	width:100%;
+	text-align:center;	
+	font-weight:bold;
+	font-size:10px;
+	top:0px;
+}
+
+/* This is the zoom window. */
+.cloud-zoom-big {
+	border:4px solid #ccc;
+	overflow:hidden;
+	width: 300px !Important;
+}
+
+/* This is the loading message. */
+.cloud-zoom-loading {
+	color:white;	
+	background:#222;
+	padding:3px;
+	border:1px solid #000;
+}
+
+
+
+
+/*Hiệu ứng trang chi tiết*/ 
+h3 {
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+}
+h4 {
+    color: green;
+    font-size: 16px;
+}
+.menu1 {
+    font:bold 16px arial; 
+    text-decoration:none;
+    color:white;
+}
+

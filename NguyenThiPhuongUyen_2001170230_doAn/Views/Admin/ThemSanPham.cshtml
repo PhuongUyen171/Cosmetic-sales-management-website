@@ -1,0 +1,58 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.SAN_PHAM
+
+@{
+    ViewBag.Title = "Thêm Mới Sản Phẩm";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>THÊM SẢN PHẨM </h2>
+@ViewBag.Thongbao
+@using (Html.BeginForm("ThemSanPham","Admin",FormMethod.Post,new{@enctype="multipart/form-data"})){
+<table align="center" style="text-align:left">
+    <tr>
+        <td style="text-align:left">Tên sản phẩm:</td>
+        <td >@Html.TextBox("TenSP")</td>
+    </tr>
+    <tr>
+        <td style="text-align:left">Giá bán:</td>
+        <td>@Html.TextBox("GiaBan")</td>
+    </tr>
+    <tr>
+        <td style="text-align:left">Mô tả:</td>
+        <td><textarea name="Mota">Mô tả thông tin sản phẩm:</textarea></td>
+    </tr>
+    <tr>
+        <td style="text-align:left">Ảnh bìa:</td>
+        <td><input type="file" name="fileUpload" /></td>
+    </tr>
+    <tr>
+        <td style="text-align:left">Ngày cập nhật:</td>
+        <td><input type="date" name="NgayCapNhat" /></td>
+    </tr>
+    <tr>
+        <td style="text-align:left">Số lượng tồn:</td>
+        <td>@Html.TextBox("SoLuong")</td>
+    </tr>
+    <tr>
+        <td style="text-align:left">Mã thể loại:</td>
+        <td>@Html.DropDownList("Matheloai")</td>
+    </tr>
+    <tr>
+        <td style="text-align:left">Mã thương hiệu:</td>
+        <td>@Html.DropDownList("Mathuonghieu")</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button class="btn btn-danger" type="submit">THÊM MỚI</button></td>
+    </tr>
+    <tr>
+        <td>
+            <font style="color:red" id="thongBao">
+                @ViewData["Loi1"]
+
+            </font>
+        </td>
+    </tr>
+</table>
+}
+@Html.ActionLink("VỀ TRANG QUẢN LÝ SẢN PHẨM","SanPham")

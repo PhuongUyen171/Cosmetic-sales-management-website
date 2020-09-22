@@ -1,0 +1,24 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.THE_LOAI_SAN_PHAM
+
+@{
+    ViewBag.Title = "Xoá danh mục";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>XÓA DANH MỤC</h2>
+<hr />
+<fieldset>
+    <legend><font color="green">Chắc chắn xóa chưa</font></legend>
+    <div class="display-label">Loại danh mục: @Model.MaLoaiSP</div>
+    <div class="display-label">Tên danh mục: @Model.TenLoaiSP</div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    
+    <p>
+        <input type="submit" value="Xóa" id="Xoa"/><br /><br />
+        @Html.ActionLink("TRỞ VỀ QUẢN LÝ DANH MỤC", "DanhMuc")
+    </p>
+    <font color="red">@ViewData["Loi"]</font>
+}
+

@@ -1,0 +1,34 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.TIN
+
+@{
+    ViewBag.Title = "Thêm tin tức";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>THÊM TIN TỨC</h2>
+
+@ViewBag.Thongbao
+@using (Html.BeginForm("ThemTinTuc","Admin",FormMethod.Post,new{@enctype="multipart/form-data"})){
+<table align="center" style="text-align:left">
+    <tr>
+        <td style="text-align:left">Tiêu đề:</td>
+        <td >@Html.TextBox("TieuDe")</td>@*@ViewData["Loi"]*@
+    </tr>
+    <tr>
+        <td style="text-align:left">Nội dung:</td>
+        <td>@Html.TextArea("TomTat")</td>@*@ViewData["Loi1"]*@
+    </tr>
+    <tr>
+        <td style="text-align:left">Ảnh bìa:</td>
+        <td><input type="file" name="file" /></td>@ViewData["Loi2"]
+    </tr>
+    <tr>
+        <td style="text-align:left">Ngày cập nhật:</td>
+        <td><input type="date" name="Ngay" /></td>@*@ViewData["Loi3"]*@
+    </tr>
+    <tr>
+        <td colspan="2"><button class="btn btn-primary" type="submit">THÊM MỚI</button></td>
+    </tr>
+</table>
+}
+@Html.ActionLink("VỀ TRANG QUẢN LÝ TIN TỨC","TinTuc")

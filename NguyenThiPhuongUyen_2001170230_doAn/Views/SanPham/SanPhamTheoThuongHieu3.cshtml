@@ -1,0 +1,22 @@
+﻿@model List<NguyenThiPhuongUyen_2001170230_doAn.Models.SAN_PHAM>
+@helper Truncate(string input,int length){
+    if(input.Length<length){
+        @input
+    }
+    else{
+        
+        @input.Substring(0,length)<text>...</text>
+    }
+}
+<div class="row">
+    @foreach(var item in Model){
+    <div class="col-md-4 hieuUng">
+        <img class="hinhdf" src="~/Content/HinhAnh/SanPham/@item.HinhAnh" height="200px" width="200px" />
+            <h2><a href="@Url.Action("ThemGioHang", "GioHang", new { @ma=@item.MaSP,@ur=Request.Url.ToString() })" style="color:white;text-decoration:none">MUA NGAY</a></h2>
+        <br />
+        <a href="@Url.Action("ChiTiet", "SanPham", new { id =item.MaSP })" class="ten">@Truncate(item.TenSP, 30)</a>        
+        <h1>@string.Format("{0:0,0}",item.GiaBan) VNĐ</h1>
+    </div>
+    }
+</div>
+

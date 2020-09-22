@@ -1,0 +1,116 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.SAN_PHAM
+
+@{
+    //ViewBag.Title = "Chi tiết sản phẩm";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CHI TIẾT SẢN PHẨM</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <div id="wrap" style="top:0px;z-index:9999;position:relative;">
+                <a href="~/Content/HinhAnh/SanPham/@Model.HinhAnh" title="" rel="adjustX: 10, adjustY:-4" id="zoom1" class="cloud-zoom" style="position: relative; display: block; ">
+                    <img src="~/Content/HinhAnh/SanPham/@Model.HinhAnh" width="300" style="display: block">
+
+                </a>
+                <div class="mousetrap" style="z-index: 999; position: absolute; width: 450px; height: 275px; left: 0px; top: 0px; cursor: move; "></div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6">
+            <h1>Tên sản phẩm: @Model.TenSP</h1><hr />
+            <p>Mô tả: @Model.MoTa</p>
+            <h1>Giá bán: @String.Format("{0:0,0}", Model.GiaBan) VNĐ</h1>
+
+            <div class="btn btn-danger">
+                <a href="@Url.Action("ThemGioHang", "GioHang", new { @ma=@Model.MaSP,@ur=Request.Url.ToString() })" style="color:white;text-decoration:none">MUA NGAY</a>
+            </div>
+        </div>
+    </div><br /><hr />
+
+
+    @*Phần nội quy, cách sử dụng*@
+    <div class="row">
+        <div class="col-lg-4">
+            <h1>CÁCH SỬ DỤNG</h1>
+            <p>Mỗi ngày bôi một lần buổi tối.<br /> Bôi ít ít thôi kẻo hết.<br /> Mua lại tốn tiền.<br /> Mẹ la</p>
+        </div>
+        <div class="col-lg-4">
+            <h1>THÀNH PHẦN</h1>
+            <p>
+                <ul>
+                    <li>Nước</li>
+                    <li>Water</li>
+                    <li>H20</li>
+                    <li>Và một số loại chất lỏng khác...</li>
+                </ul>
+            </p>
+        </div>
+        <div class="col-lg-4">
+            <h1>VẬN CHUYỂN</h1>
+            <p>Một hai ngày là tới liền<br />Miễn phí giao hàng với đơn hàng 1 củ rưỡi<br />(Một củ 4 xị 99 cũng không tính)</p>
+        </div>
+    </div><br />
+
+    @*Quảng cáo về những sản phẩm cùng thương hiệu*@
+    <div class="bg-danger" style="width:100%;padding-top:10px;padding-left:5px;color:white;height:50px;font-weight:bold">
+        SẢN PHẨM CÙNG THƯƠNG HIỆU
+    </div>
+    @Html.Action("SanPhamTheoThuongHieu3", "SanPham", new { id = @Model.MaTH })
+    <br />
+
+    @*Đánh giá khách hàng*@
+    <div class="bg-danger" style="width:100%;padding-top:10px;padding-left:5px;color:white;height:50px;font-weight:bold">
+        ĐÁNH GIÁ SẢN PHẨM
+    </div><br />
+    <div class="row">
+        <div class="col-lg-2">
+            <img src="~/Content/HinhAnh/vanhein.jpg" style="border-radius:100%" height="100px" width="100px" />
+            <h3>VanHein</h3>
+        </div>
+        <div class="col-lg-10">
+            <h1>Phù hợp với làn da mền rách của chế</h1>
+            <p>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+            </p>
+            <p>Đánh giá: 4/5<br />Chế thích lắm. Vì phù hợp với làn da chế. Làn da chế như một cái mền rách. Chế cảm thấy vui vì làn da mền rách của chế thích. Mặc dù mền rách nhưng vẫn rất thích sản phẩm</p>
+        </div>
+    </div><br />
+    <div class="row">
+        <div class="col-lg-2">
+            <img src="~/Content/HinhAnh/triệu vân.jpg" style="border-radius:100%" height="100px" width="100px" />
+            <h3>Triệu Vân</h3>
+        </div>
+        <div class="col-lg-10">
+            <h1>Phù hợp với làn da mền rách của chế</h1>
+            <p>Đánh giá: 4/5<br />Chế thích lắm. Vì phù hợp với làn da chế. Làn da chế như một cái mền rách. Chế cảm thấy vui vì làn da mền rách của chế thích. Mặc dù mền rách nhưng vẫn rất thích sản phẩm</p>
+        </div>
+    </div><br />
+    <div class="row">
+        <div class="col-lg-2">
+            <img src="~/Content/HinhAnh/Mganga.jpg" style="border-radius:100%" height="100px" width="100px" />
+            <h3>Mganga</h3>
+        </div>
+        <div class="col-lg-10">
+            <i class="fa fa-star"></i>
+            <h1>Phù hợp với làn da mền rách của chế</h1>
+            <p>Đánh giá: 4/5<br />Chế thích lắm. Vì phù hợp với làn da chế. Làn da chế như một cái mền rách. Chế cảm thấy vui vì làn da mền rách của chế thích. Mặc dù mền rách nhưng vẫn rất thích sản phẩm</p>
+        </div>
+    </div><br />
+</div>
+
+
+@*Phần javascript cho hiệu ứng kính lúp lên img*@
+<link rel="stylesheet" type="text/css" href="~/Content/css.css">
+<script type="text/javascript" src="~/jquery.js"></script>
+<script type="text/javascript" src="~/jquery-ui.min.js"></script>
+<script type="text/javascript" src="~/cloud-zoom.1.0.2.min.js"></script>
+<script type="text/javascript" src="~/js.js"></script>
+<script type="text/javascript" src="~/Content/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/bootstrap-theme.min.css" />

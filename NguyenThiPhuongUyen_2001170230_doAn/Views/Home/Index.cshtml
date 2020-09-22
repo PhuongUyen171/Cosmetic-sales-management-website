@@ -1,0 +1,116 @@
+﻿@using NguyenThiPhuongUyen_2001170230_doAn.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<SAN_PHAM>
+
+@helper Truncate(string input,int length){
+    if(input.Length<length){
+        @input
+    }
+    else{
+        
+        @input.Substring(0,length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    var slideIndex;
+    function showSlide() {
+        var i;
+        var slide = document.getElementsByClassName("mySlide");
+        var dot = document.getElementsByClassName("dot");
+        for (i = 0; i < slide.length; i++) {
+            slide[i].style.display = "none";  
+        }
+        for (i = 0; i < dot.length; i++) {
+            dot[i].className = dot[i].className.replace(" active", "");
+        }
+        slide[slideIndex].style.display = "block";  
+        dot[slideIndex].className += " active";
+        slideIndex++;
+        if (slideIndex > slide.length - 1) {
+            slideIndex = 0
+        }    
+        setTimeout(showSlide, 5000);
+    }
+    showSlide(slideIndex = 0);
+    function currentSlide(n) {
+        showSlide(slideIndex = n);
+    }
+</script>
+<div class="content">
+    <div class="banner">
+        <div class="mySlide fade">
+            <img src="~/Content/HinhAnh/banner4.jpg" style="width:100%">
+            <div class="text">Khuyến mãi 1</div>
+        </div>
+        <div class="mySlide fade">
+            <img src="~/Content/HinhAnh/banner1.jpg" style="width:100%">
+            <div class="text">Khuyến mãi 2</div>
+        </div>
+        <div class="mySlide fade">
+            <img src="~/Content/HinhAnh/banner2.jpg" style="width:100%">
+            <div class="text">Khuyến mãi 3</div>
+        </div>
+        <div class="mySlide fade">
+            <img src="~/Content/HinhAnh/banner3.jpg" style="width:100%">
+            <div class="text">Khuyến mãi 4</div>
+        </div>
+    </div>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>   
+    
+    <div class="row">
+        <div class="col-md-6">
+            <img src="~/Content/HinhAnh/banner2.jpg" height="170px"/>
+        </div>
+        <div class="col-md-6">
+            <img src="~/Content/HinhAnh/banner1.jpg" height="170px"/>
+        </div>
+    </div>
+    <br />
+    <div class="bg-dark" style="clear:both;width:100%;padding-top:10px;padding-left:5px;color:white;height:50px;font-weight:bold">
+        THƯƠNG HIỆU
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Action("ThuongHieuPartial", "Home")
+        </div>            
+    </div><br />
+
+
+    <br />
+    <div class="bg-dark" style="width:100%;padding-top:10px;padding-left:5px;color:white;height:50px;font-weight:bold">
+        SẢN PHẨM MỚI
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            @foreach(var item in Model){
+            <div class="col-md-4 hieuUng">
+                <img class="hinhdf" src="~/Content/HinhAnh/SanPham/@item.HinhAnh" height="300px" width="250px" />
+                    <h2><a href="@Url.Action("ThemGioHang", "GioHang", new { @ma=@item.MaSP,@ur=Request.Url.ToString() })" style="color:white;text-decoration:none" id="btnMua">MUA NGAY</a></h2>
+                <br />
+                <a href="@Url.Action("ChiTiet", "SanPham", new { id =item.MaSP })" class="ten">@Truncate(item.TenSP, 30)</a>  <br /> 
+                <a href="@Url.Action("ThemGioHang", "GioHang", new { @ma=@item.MaSP,@ur=Request.Url.ToString() })"  id="btnMua">MUA</a> 
+                <h1>@string.Format("{0:0,0}",item.GiaBan) VNĐ</h1>
+            </div>
+            }
+        </div>            
+    </div><br />
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+    
+        @Html.PagedListPager(Model, page => Url.Action("Index", new {page=page }))
+    <br />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <div class="bg-dark" style="width:100%;padding-top:10px;padding-left:5px;color:white;height:50px;font-weight:bold">
+        KINH NGHIỆM LÀM ĐẸP
+    </div>
+    @Html.Action("TinTucPartial","TinTuc")
+</div>
+

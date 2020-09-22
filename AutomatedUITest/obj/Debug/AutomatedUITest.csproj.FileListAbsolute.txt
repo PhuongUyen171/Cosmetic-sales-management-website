@@ -1,0 +1,9 @@
+C:\Users\PC\Desktop\NguyenThiPhuongUyen_2001170230_doAn\AutomatedUITest\bin\Debug\AutomatedUITest.dll
+C:\Users\PC\Desktop\NguyenThiPhuongUyen_2001170230_doAn\AutomatedUITest\bin\Debug\AutomatedUITest.pdb
+C:\Users\PC\Desktop\NguyenThiPhuongUyen_2001170230_doAn\AutomatedUITest\obj\Debug\AutomatedUITest.csprojResolveAssemblyReference.cache
+C:\Users\PC\Desktop\NguyenThiPhuongUyen_2001170230_doAn\AutomatedUITest\obj\Debug\AutomatedUITest.dll
+C:\Users\PC\Desktop\NguyenThiPhuongUyen_2001170230_doAn\AutomatedUITest\obj\Debug\AutomatedUITest.pdb
+C:\Users\PC\Desktop\DoAn__WebBanMyPham\NguyenThiPhuongUyen_2001170230_doAn\AutomatedUITest\bin\Debug\AutomatedUITest.dll
+C:\Users\PC\Desktop\DoAn__WebBanMyPham\NguyenThiPhuongUyen_2001170230_doAn\AutomatedUITest\bin\Debug\AutomatedUITest.pdb
+C:\Users\PC\Desktop\DoAn__WebBanMyPham\NguyenThiPhuongUyen_2001170230_doAn\AutomatedUITest\obj\Debug\AutomatedUITest.dll
+C:\Users\PC\Desktop\DoAn__WebBanMyPham\NguyenThiPhuongUyen_2001170230_doAn\AutomatedUITest\obj\Debug\AutomatedUITest.pdb

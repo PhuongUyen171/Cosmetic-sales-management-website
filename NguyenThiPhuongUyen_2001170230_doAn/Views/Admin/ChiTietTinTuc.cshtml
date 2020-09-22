@@ -1,0 +1,44 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.TIN
+
+@{
+    ViewBag.Title = "Chi tiết tin tức";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+@helper Truncate(string input,int length){
+    if(input.Length<length){
+        @input
+    }
+    else{
+        
+        @input.Substring(0,length)<text>...</text>
+    }
+}
+
+<h2>THÔNG TIN CHI TIẾT TIN TỨC</h2>
+<table class="table" align="center" style="text-align:left">
+    <tr>
+        <td style="font-weight:bold;width:150px">Mã tin:</td>
+        <td style="text-align:left">@Model.MaTin</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;width:150px">Tiêu đề:</td>
+        <td style="text-align:left">@Model.TieuDe</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;width:150px">Hình ảnh:</td>
+        <td style="text-align:left"><img src="~/HinhAnh/Tin/@Model.Hinh" width="100px" /></td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;width:150px">Ngày cập nhật:</td>
+        <td style="text-align:left">@string.Format("{0:dd/MM/yyyy}",Model.Ngay)</td>
+    </tr>
+    <tr>
+        <td style="font-weight:bold;width:150px">Nội dung:</td>
+        <td style="text-align:left">@Truncate(Model.TomTat,200)</td>
+    </tr>
+</table>
+<p>
+    @Html.ActionLink("ĐIỀU CHỈNH", "SuaTinTuc", new {id=Model.MaTin })|
+    @Html.ActionLink("TRỞ VỀ","TinTuc")
+</p>
+

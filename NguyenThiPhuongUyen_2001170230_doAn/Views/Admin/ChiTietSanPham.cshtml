@@ -1,0 +1,45 @@
+﻿@model NguyenThiPhuongUyen_2001170230_doAn.Models.SAN_PHAM
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+<div>
+    <hr />
+    <table border="0" align="center" style="text-align:left">
+        <tr>
+            <td style="font-weight:bold">Tên sản phẩm:</td>
+            <td style="text-align:left">@Html.DisplayFor(m=>m.TenSP)</td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Giá bán:</td>
+            <td style="text-align:left">@string.Format("{0:0,0}",Model.GiaBan) VNĐ</td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Mô tả:</td>
+            <td style="width:600px;text-align:justify">@Html.DisplayFor(m=>m.MoTa)</td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Ảnh bìa:</td>
+            <td style="text-align:left"><img src="@Url.Content("~/Content/HinhAnh/SanPham/"+Model.HinhAnh)" width="120px" /></td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Số lượng tồn:</td>
+            <td style="text-align:left">@Html.DisplayFor(m=>m.SoLuong)</td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Thể loại:</td>
+            <td style="text-align:left">@Html.DisplayFor(m=>m.THE_LOAI_SAN_PHAM.TenLoaiSP)</td>
+        </tr>
+        <tr>
+            <td style="font-weight:bold">Thương hiệu:</td>
+            <td style="text-align:left">@Html.DisplayFor(m=>m.THUONG_HIEU.TenTH)</td>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("ĐIỀU CHỈNH", "SuaSanPham", new {id=Model.MaSP })|
+    @Html.ActionLink("TRỞ VỀ","SanPham")
+</p>

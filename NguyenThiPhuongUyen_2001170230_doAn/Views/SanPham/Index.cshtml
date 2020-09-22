@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<NguyenThiPhuongUyen_2001170230_doAn.Models.SAN_PHAM>
+@{
+    ViewBag.Title = "Tìm sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@helper Truncate(string input,int length){
+    if(input.Length<length){
+        @input
+    }
+    else{
+        
+        @input.Substring(0,length)<text>...</text>
+    }
+}
+
+@using (Html.BeginForm("Index","SanPham",FormMethod.Get))
+{
+    <p>Nhập sản phẩm bạn muốn tìm kiếm: @Html.TextBox("tim")
+       Loại sản phẩm: @Html.DropDownList("ma","Tất cả")
+        <input type="submit" value="TÌM KIẾM" name="btnTim"/>
+    </p>
+}
+
+<h2>SẢN PHẨM BẠN MUỐN TÌM KIẾM</h2>
+
+<div class="row">
+    @foreach(var item in Model){
+        <div class="col-md-4 hieuUng">
+            <img class="hinhdf" src="~/Content/HinhAnh/SanPham/@item.HinhAnh" height="300px" width="250px" />
+                <h2><a href="@Url.Action("ThemGioHang", "GioHang", new { @ma=@item.MaSP,@ur=Request.Url.ToString() })" style="color:white;text-decoration:none" id="btnMua">MUA NGAY</a></h2>
+            <br />
+            <a href="@Url.Action("ChiTiet", "SanPham", new { id =item.MaSP })" class="ten">@Truncate(item.TenSP, 30)</a>        
+            <h1>@string.Format("{0:0,0}",item.GiaBan) VNĐ</h1>
+        </div>
+    }
+</div>
